@@ -20,7 +20,7 @@ DEFAULT_INSTALL_DIR = Path("/opt/vulpkg")
 
 class VulPKG:
     def __init__(self):
-        self.package_dir = PACKAGE_DIR
+        self.package_dir = PACKAGE_REPO
         self.installed_db = INSTALLED_DB
         self.install_dir = DEFAULT_INSTALL_DIR
         
