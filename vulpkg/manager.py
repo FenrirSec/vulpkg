@@ -14,6 +14,8 @@ from typing import Dict, List, Optional
 import shutil
 
 # Constants
+APPS_DIR = Path("/var/lib/vulpkg/applications")
+ICONS_DIR = Path("/var/lib/vulpkg/icons")
 PACKAGE_REPO = Path("/var/lib/vulpkg/repo")  # Repository for .vulpkg files
 INSTALLED_DB = Path("/var/lib/vulpkg/installed.json")
 DEFAULT_INSTALL_DIR = Path("/opt/vulpkg")
@@ -23,11 +25,15 @@ class VulPKG:
         self.package_dir = PACKAGE_REPO
         self.installed_db = INSTALLED_DB
         self.install_dir = DEFAULT_INSTALL_DIR
+        self.apps_dir = APPS_DIR
+        self.icons_dir = ICONS_DIR
         
         # Ensure directories exist
         self.package_dir.mkdir(parents=True, exist_ok=True)
         self.installed_db.parent.mkdir(parents=True, exist_ok=True)
         self.install_dir.mkdir(parents=True, exist_ok=True)
+        self.apps_dir.mkdir(parents=True, exists_ok=True)
+        self.icons_dir.mkdir(parents=True, exists_ok=True)
         
         # Load installed packages database
         self.installed = self._load_installed()
