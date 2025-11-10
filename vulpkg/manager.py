@@ -164,8 +164,11 @@ class VulPKG:
     def install(self, package_file: Path) -> bool:
         """Install a package from a .vulpkg file"""
         if not package_file.exists():
-            print(f"[!] Package file not found: {package_file}")
-            return False
+            if Path.joinpath(PACKAGE_REPO, package_file).exists():
+                package_file = Path.joinpath(PACKAGE_REPO, package_file)
+            else:
+                print(f"[!] Package file not found: {package_file}")
+                return False
         
         # Load package definition
         try:

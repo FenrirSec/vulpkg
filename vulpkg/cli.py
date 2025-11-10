@@ -18,7 +18,6 @@ Examples:
   vulpkg install package.vulpkg     Install from .vulpkg file
   vulpkg remove burpsuite           Remove installed package
   vulpkg list                       List installed packages
-  vulpkg available                  List available packages
   vulpkg info burpsuite             Show package information
 
 For more information: https://github.com/FenrirSec/vulpkg
@@ -38,8 +37,8 @@ For more information: https://github.com/FenrirSec/vulpkg
     # List command
     subparsers.add_parser('list', help='List installed packages')
     
-    # Available command
-    subparsers.add_parser('available', help='List available packages in repository')
+#    # Available command
+#    subparsers.add_parser('available', help='List available packages in repository')
     
     # Info command
     info_parser = subparsers.add_parser('info', help='Show package information')
@@ -71,8 +70,8 @@ For more information: https://github.com/FenrirSec/vulpkg
         manager.remove(args.package)
     elif args.command == 'list':
         manager.list_installed()
-    elif args.command == 'available':
-        manager.list_available()
+#    elif args.command == 'available':
+#        manager.list_available()
     elif args.command == 'info':
         manager.info(args.package)
 
