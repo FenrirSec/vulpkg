@@ -161,8 +161,10 @@ class VulPKG:
         
         return True
     
-    def install(self, package_file: Path) -> bool:
+    def install(self, package_file: str) -> bool:
         """Install a package from a .vulpkg file"""
+        if not package_file.endswith(".vulpkg"):
+            package_file += ".vulpkg"
         if not package_file.exists():
             if Path.joinpath(PACKAGE_REPO, package_file).exists():
                 package_file = Path.joinpath(PACKAGE_REPO, package_file)
@@ -306,7 +308,7 @@ def main():
     
     # Install command
     install_parser = subparsers.add_parser('install', help='Install a package')
-    install_parser.add_argument('package', type=Path, help='Path to .vulpkg file')
+    install_parser.add_argument('package', type=str, help='Path to .vulpkg file')
     
     # Remove command
     remove_parser = subparsers.add_parser('remove', help='Remove a package')

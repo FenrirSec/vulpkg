@@ -64,8 +64,7 @@ For more information: https://github.com/FenrirSec/vulpkg
     
     if args.command == 'install':
         # Try to resolve as path first, then as package name
-        pkg_path = Path(args.package)
-        manager.install(pkg_path)
+        manager.install(args.package)
     elif args.command == 'remove':
         manager.remove(args.package)
     elif args.command == 'list':
