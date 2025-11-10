@@ -32,8 +32,8 @@ class VulPKG:
         self.package_dir.mkdir(parents=True, exist_ok=True)
         self.installed_db.parent.mkdir(parents=True, exist_ok=True)
         self.install_dir.mkdir(parents=True, exist_ok=True)
-        self.apps_dir.mkdir(parents=True, exists_ok=True)
-        self.icons_dir.mkdir(parents=True, exists_ok=True)
+        self.apps_dir.mkdir(parents=True, exist_ok=True)
+        self.icons_dir.mkdir(parents=True, exist_ok=True)
         
         # Load installed packages database
         self.installed = self._load_installed()
