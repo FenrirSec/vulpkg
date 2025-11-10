@@ -171,7 +171,7 @@ class VulPKG:
         """Install a package from a .vulpkg file"""
         if not package_file.endswith(".vulpkg"):
             package_file += ".vulpkg"
-        if not package_file.exists():
+        if not Path(package_file).exists():
             if Path.joinpath(PACKAGE_REPO, package_file).exists():
                 package_file = Path.joinpath(PACKAGE_REPO, package_file)
             else:
